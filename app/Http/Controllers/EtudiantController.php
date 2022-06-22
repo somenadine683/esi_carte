@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+Use App\Models\Etudiant;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -13,8 +13,12 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        //
+        $etudiants = Etudiant::all();
+        $nbrE = Etudiant::all()->count();
+
+        return view('etudiants.index', compact('etudiants', 'nbrE'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +27,7 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        //
+        return view('etudiants.create');
     }
 
     /**
@@ -34,18 +38,32 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+        'matricule'=>'required',
+        'nom'=>'required',
+        'prenom'=>'required',
+        'niveau'=>'required',
+        'cycle'=>'required',
+        'annee'=>'required',
+        'photo'=>'required',
+            ]);
+
+            Etudiant::create($request->all());
+
+
+            return redirect()->route('etudiants.index')->with('success','Student created successfuly.');
     }
 
     /**
      * Display the specified resource.
-     *
+     *@param \App\Models\Etudiant  $etudiant 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Etudiant $etudiant)
     {
-        //
+        return view('etudiants.card',compact('etudiant'));
     }
 
     /**
@@ -54,9 +72,9 @@ class EtudiantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Etudiant $etudiant)
     {
-        //
+        return view('etudiants.edit',compact('etudiant'));
     }
 
     /**
@@ -66,19 +84,34 @@ class EtudiantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        $request->validate([
+            'matricule'=>'required',
+            'nom'=>'required',
+            'prenom'=>'required',
+            'niveau'=>'required',
+            'cycle'=>'required',
+            'annee'=>'required',
+            'photo'=>'required',
+        ]);
+
+        $etudiant->update($request->all());
+        
+        return redirect()->route('etudiant.index')->with('success','Student updated successfuly');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Etudiant $etudiant)
     {
-        //
-    }
+        $etudiant->delete();
+        
+        return redirect()->route('etudiants.index')
+                         ->with('success','student deleted successfuly');
+        }
 }

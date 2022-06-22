@@ -10,9 +10,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{route('secretaires')}}">Ajout de secretaire</a>
-                                    <a class="nav-link" href="{{route('etudiants')}}">Ajout etudiant</a>
-                                    <a class="nav-link" href="{{route('listes')}}">Liste</a>
+                                    <a class="nav-link" href="{{route('register')}}">Ajout de secretaire</a>
+                                    <a class="nav-link" href="{{route('login')}}">Ajout etudiant</a>
+                                    
                                     <a class="nav-link" href="layout-sidenav-light.html">Generer une carte</a>
 
                                 </nav>

@@ -10,11 +10,11 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="{{asset('style/css/style.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/etudiant.css')}}" rel="stylesheet" />
+      
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand ">
+    <body class="">
+    <nav class="sb-topnav navbar navbar-expand sb-nav-fixed">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
             <!-- Sidebar Toggle-->

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EtudiantController;
 
 
 /*
@@ -18,17 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('etudiant','EtudiantController');
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::resource('etudiants',EtudiantController::class);
 
-Route::get('/secretaire', [App\Http\Controllers\Secretaire::class, 'index'])->name('secretaires');
-Route::get('/etudiant', [App\Http\Controllers\Etudiant::class, 'index'])->name('etudiants');
 
-Route::get('/liste', [App\Http\Controllers\Liste::class, 'index'])->name('listes');
 
 
 
