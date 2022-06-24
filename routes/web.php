@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\SecretaireController;
+use App\Http\Controllers\CardController;
 
 
 /*
@@ -21,9 +23,15 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\CardController::class, 'index'])->name('home');
+
+Route::get('/aaaa', [App\Http\Controllers\EtudiantController::class, 'SendMail']);
+
+
 
 
 Route::resource('etudiants',EtudiantController::class);
+Route::resource('secretaires',SecretaireController::class);
 
 
 

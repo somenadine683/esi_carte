@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+Use App\Models\User;
+Use App\Models\Etudiant;
+Use App\Http\Controllers;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +29,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    
+    public function SendMail(Request $request){
+        Mail::to('somenadine683@gmail.com')->send(new ContactMail());
+        return back()->with("succes","Etudiant");
+    }
+    
+
 }

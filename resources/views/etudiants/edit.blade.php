@@ -1,17 +1,21 @@
 @extends('layouts.app')
 <link rel="stylesheet" href=" {{asset('css/etudiant.css')}}">
 <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 @section('content')
-<div class="container">
-                        <div class="row justify-content-center" >
-                            <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-3">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Enregistrer un etudiant</h3></div>
-                                    <div class="card-body">
 
-                                    <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('etudiants.index') }}"> Back</a>
-            </div>
+
+
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-body">
+                        <div class="card-header bg-primary">
+                            <h3 class="text-center font-weight-light text-light my-1">Mise a jour</h3>
+                                </div>
+
+                                   
         </div>
     </div>
 
@@ -25,43 +29,48 @@
         </div>
     @endif
                                     
-    <form action="{{ route('posts.update',$post->id) }}" method="POST">
+    <form action="{{ route('etudiants.update',$etudiant->id) }}" method="POST">
                                             @csrf
 
                                             @method('PUT')
-                                        <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputMatricule" type="text" placeholder="matricule"name="matricule" value="{{ $etudiant->matricule }}" />
-                                                <label for="inputMatricule">Matricule</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputMatricule" type="text" placeholder="matricule"name="matricule" value="{{ $etudiant->matricule }}" />
+                                                
                                             </div>
                                         
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputName" type="text" placeholder="nom" name="nom" value="{{ $etudiant->nom }}" />
-                                                <label for="inputName">Nom</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputName" type="text" placeholder="nom" name="nom" value="{{ $etudiant->nom }}" />
+                                                
                                             </div> 
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputName" type="text" placeholder="prenom"name="prenom" value="{{ $etudiant->prenom }}" />
-                                                <label for="inputName">Prenom</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputName" type="text" placeholder="prenom"name="prenom" value="{{ $etudiant->prenom }}" />
+                                               
                                             </div> 
                                             
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputNiveau" type="text" placeholder="niveau"name="niveau" value="{{ $etudiant->niveau }}"  />
-                                                <label for="inputNiveau">Niveau</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputNiveau" type="text" placeholder="niveau"name="niveau" value="{{ $etudiant->niveau }}"  />
+                                               
                                             </div>  
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputCycle" type="text" placeholder="cycle"name="cycle" value="{{ $etudiant->cycle }}" />
-                                                <label for="inputCycle">Cycle</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputCycle" type="text" placeholder="cycle"name="cycle" value="{{ $etudiant->cycle }}" />
+                                                
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputYear" type="text" placeholder="cycle"name="annee" value="{{ $etudiant->annee }}"  />
-                                                <label for="inputYear">Annee</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputYear" type="text" placeholder="cycle"name="annee" value="{{ $etudiant->annee }}"  />
+                                                
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputYear" type="file" placeholder="photo"name="photo" value="{{ $etudiant->photo }}"  />
-                                                <label for="inputPicture"></label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputYear" type="file" placeholder="photo"name="photo" value="{{ $etudiant->photo }}"  />
+                                               
                                             </div>
                                             
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <div class="pull-right">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                         <a class="btn btn-danger" href="{{ route('etudiants.index') }}"> Back</a>
+
+                                                    </div>
+                                                
                                             </div>
                                         </form>
                                     </div>
@@ -70,4 +79,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+

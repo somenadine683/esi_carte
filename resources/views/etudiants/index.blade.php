@@ -51,24 +51,26 @@
                                         
                                         @foreach ($etudiants as $etudiant)
                                         <tr>
-                                            <td>{{$etudiant->Matricule}}</td>
-                                            <td>{{$etudiant->Nom}}</td>
-                                            <td>{{$etudiant->Prenom}}</td>
-                                            <td>{{$etudiant->Niveau}}</td>
-                                            <td>{{$etudiant->Cycle}}</td>
-                                            <td>{{$etudiant->Annee}}</td>
+                                            <td>{{$etudiant->matricule}}</td>
+                                            <td>{{$etudiant->nom}}</td>
+                                            <td>{{$etudiant->prenom}}</td>
+                                            <td>{{$etudiant->niveau}}</td>
+                                            <td>{{$etudiant->cycle}}</td>
+                                            <td>{{$etudiant->annee}}</td>
                                             
-                                            <td>
+                                            <td class="d-flex">
                                                 <a class="btn btn-info" href="{{ route('etudiants.show' , $etudiant) }}">Show</a>
-                                                <a class="btn btn-primary" href="{{ route( 'etudiants.edit', $etudiant) }}">Edit</a>
+                                                @if(Auth::user()->role == "directeur")
+                                                <a class="btn btn-primary lien" href="{{ route( 'etudiants.edit', $etudiant) }}">Edit</a>
                                             
-                                        
-                                                <form action="{{route('etudiants.destroy',$etudiant->id)}}" method="POST">
+                                                
+                                                <form action="{{route('etudiants.destroy',$etudiant->id)}}" method="POST" onsubmit="return cnf()">
                                                 
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
+                                                @endif
                                           </td>
                                         </tr>
                                         @endforeach
@@ -81,3 +83,14 @@
                                         <a class="btn btn-primary" href="{{route('etudiants.create')}}">Enregistrer un etudiant</a>
                                 </div>
 @endsection
+
+<script>
+    function cnf(){
+        let ret= confirm("Voulez vous reellement supprimer cette table?")
+        if (ret){
+            return true;
+      }
+        return false;
+    }
+</script>
+

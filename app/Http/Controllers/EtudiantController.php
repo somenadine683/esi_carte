@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 Use App\Models\Etudiant;
 use Illuminate\Http\Request;
 
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
+
 class EtudiantController extends Controller
 {
     /**
@@ -63,7 +66,7 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        return view('etudiants.card',compact('etudiant'));
+        return view('etudiants.show',compact('etudiant'));
     }
 
     /**
@@ -98,7 +101,7 @@ class EtudiantController extends Controller
 
         $etudiant->update($request->all());
         
-        return redirect()->route('etudiant.index')->with('success','Student updated successfuly');
+        return redirect()->route('etudiants.index')->with('success','Student updated successfuly');
     }
 
     /**
@@ -113,5 +116,10 @@ class EtudiantController extends Controller
         
         return redirect()->route('etudiants.index')
                          ->with('success','student deleted successfuly');
+        }
+
+        public function SendMail(Request $request){
+            Mail::to('somenadine683@gmail.com')->send(new ContactMail());
+            return back()->with("succes","Etudiant");
         }
 }

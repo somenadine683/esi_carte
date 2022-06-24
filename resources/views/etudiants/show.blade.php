@@ -1,61 +1,91 @@
-@extends('layouts.app')
-<link rel="stylesheet" href=" {{asset('css/etudiant.css')}}">
-<link rel="stylesheet" href="{{asset('css/styles.css')}}">
+@extends('layouts.auth')
 @section('content')
-<div class="container">
-                        <div class="row justify-content-center" >
-                            <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-3">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Enregistrer un etudiant</h3></div>
-                                    <div class="card-body">
+<link rel="stylesheet" href="{{asset('css/newstyle.css')}}">
+<link rel="stylesheet" href="{{asset('css/etudiant.css')}}">
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    {{-- student card --}}
+   {{-- dashboard --}}
+   <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-11">
+            <div class="card border border-0 shadow p-3 mb-5 bg-body rounded">
+                {{-- <div class="card-header t">Dashboard</div> --}}
 
+                <div class="card-body text-center bg-body ">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    <h3>welcome to your dashboard/<span class="text-primary">student card</span></h3>
+                    <h6>This is your dashboard, where you can manage the students, add an admin and more.</h6>
+                </div>
 
-                                    <div class="pull-right">
-                                         <a class="btn btn-primary" href="{{ route('etudiants.index') }}"> Back</a>
-                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex">
 
-
-                                        <form action="{{route('etudiants.store')}}" method="POST">
-                                            
-
-
-                                        <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputMatricule" type="text" placeholder="matricule"name="matricule"/>
-                                                <label for="inputMatricule">Matricule</label>
-                                            </div>
-                                        
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputName" type="text" placeholder="nom" name="nom"/>
-                                                <label for="inputName">Nom</label>
-                                            </div> 
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputName" type="text" placeholder="prenom"name="prenom" />
-                                                <label for="inputName">Prenom</label>
-                                            </div> 
-                                            
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputNiveau" type="text" placeholder="niveau"name="niveau" />
-                                                <label for="inputNiveau">Niveau</label>
-                                            </div>  
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputCycle" type="text" placeholder="cycle"name="cycle" />
-                                                <label for="inputCycle">Cycle</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputYear" type="text" placeholder="cycle"name="annee" />
-                                                <label for="inputYear">Annee</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputYear" type="file" placeholder="photo"name="photo" />
-                                                <label for="inputPicture"></label>
-                                            </div>
-                                            
-                                            
-                                        </form>
-                                    </div>
-                                   
+        <div class="container ">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card shadow p-3 mb-5 bg-body rounded border-0 rounded-lg mt-5">
+                        <div class="card-header bg-secondary text-center">
+                            <h5 class="text-white font-weight-light my-0">{{ __('NAZI BONI (ESI) STUDENT CARD') }}</h5>
+                        </div>
+                        <div class="card-body bg-primary">
+                            <div class="d-flex offset  text-light">
+                                <div class="img col-3 rounded rounded-circle mt-1 bg-info">
+                                    <img src="{{ asset('img/student.png') }}" alt="student" class="img-fluid">
+                                </div>
+                                <div class="d-block offset-1 mt-3">
+                                    <h6>{{ $etudiant->matricule }}</h6>
+                                    <h6 class="">{{ $etudiant->nom }}</h6>
+                                    <h6>{{ $etudiant->prenom }}</h6>
+                                    
+                                </div>
+                                <div class="d-block offset-1 mt-3">
+                                    <h6>{{ $etudiant->niveau }}</h6>
+                                    <h6>{{ $etudiant->cycle }}</h6>
+                                    <h6>{{ $etudiant->annee }}</h6>
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer bg-secondary">
+
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card shadow p-3 mb-5 bg-body rounded shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header bg-secondary text-center">
+                            <h5 class="text-white font-weight-light my-0">{{ __('NAZI BONI (ESI) STUDENT CARD') }}</h5>
+                        </div>
+                        <div class="card-body bg-dark">
+
+                            <div class="d-flex offset  text-light">
+                                <div class="img col-3 offset-4 rounded rounded-circle mt-1 bg-info">
+                                    <img src="{{ asset('img/student.png') }}" alt="student" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-secondary">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="d-flex ml-3">
+    <div><a href="{{route('home')}}" class="btn btn-primary">Back</a></div>
+    
+    <div><a class="btn btn-danger" href="{{ route( 'etudiants.edit', $etudiant) }}">Edit</a></div>
+</div>
 @endsection
+{{-- end of student card --}}

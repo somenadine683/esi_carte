@@ -3,11 +3,13 @@
 <link rel="stylesheet" href="{{asset('css/styles.css')}}">
 @section('content')
 <div class="container">
-                        <div class="row justify-content-center" >
-                            <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-3">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Enregistrer un etudiant</h3></div>
-                                    <div class="card-body">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-body">
+                        <div class="card-header bg-primary">
+                            <h3 class="text-center font-weight-light text-light my-1">Add a new student</h3>
+                                </div>
 
                                     @if($errors->any())
                                     <div class="alert alert-danger">
@@ -21,42 +23,32 @@
                                     
                                         <form action="{{route('etudiants.store')}}" method="POST">
                                             @csrf
-
-
-                                        <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputMatricule" type="text" placeholder="matricule"name="matricule"/>
-                                                <label for="inputMatricule">Matricule</label>
+                                        <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputMatricule" type="text" placeholder="matricule"name="matricule"/>
                                             </div>
                                         
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputName" type="text" placeholder="nom" name="nom"/>
-                                                <label for="inputName">Nom</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputName" type="text" placeholder="nom" name="nom"/>
                                             </div> 
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputName" type="text" placeholder="prenom"name="prenom" />
-                                                <label for="inputName">Prenom</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputName" type="text" placeholder="prenom"name="prenom" />
                                             </div> 
                                             
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputNiveau" type="text" placeholder="niveau"name="niveau" />
-                                                <label for="inputNiveau">Niveau</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputNiveau" type="text" placeholder="niveau"name="niveau" />
                                             </div>  
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputCycle" type="text" placeholder="cycle"name="cycle" />
-                                                <label for="inputCycle">Cycle</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputCycle" type="text" placeholder="cycle"name="cycle" />
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputYear" type="text" placeholder="cycle"name="annee" />
-                                                <label for="inputYear">Annee</label>
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputYear" type="text" placeholder="annee"name="annee" />
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputYear" type="file" placeholder="photo"name="photo" />
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputYear" type="file" placeholder="photo"name="photo" />
                                                 <label for="inputPicture"></label>
                                             </div>
                                             
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
                                         </form>
                                     </div>
                                    
@@ -64,4 +56,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+
