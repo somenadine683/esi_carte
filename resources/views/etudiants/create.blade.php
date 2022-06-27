@@ -33,6 +33,9 @@
                                             <div class="form-group">
                                                 <input class="form-control my-2  py-1" id="inputName" type="text" placeholder="prenom"name="prenom" />
                                             </div> 
+                                            <div class="form-group">
+                                                <input class="form-control my-2  py-1" id="inputName" type="email" placeholder="email"name="email" />
+                                            </div> 
                                             
                                             <div class="form-group">
                                                 <input class="form-control my-2  py-1" id="inputNiveau" type="text" placeholder="niveau"name="niveau" />

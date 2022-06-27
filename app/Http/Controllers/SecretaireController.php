@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 Use App\Models\User;
 use Illuminate\Http\Request;
+use App\Notifications\Notification11;
+
 
 
 class SecretaireController extends Controller
@@ -50,10 +52,10 @@ class SecretaireController extends Controller
         
             ]);
 
-           User::create($request->all());
+          $user = User::create($request->all());
 
-
-            return redirect()->route('secretaires.index')->with('success','Secretaire enregistree avec succes.');
+          $user->notify(new Notification11());
+          return redirect()->route('secretaires.index')->with('success','Secretaire enregistrer avec succes');
     }
 
     /**

@@ -12,6 +12,7 @@ class Etudiant extends Model
         'matricule',
         'nom',
         'prenom',
+        'email',
         'niveau',
         'cycle',
         'annee',

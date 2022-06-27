@@ -31,6 +31,7 @@
                                             <th class="text-center">Matricule</th>
                                             <th class="text-center">Nom</th>
                                             <th class="text-center">Prenom</th>
+                                            <th class="text-center">Email</th>
                                             <th class="text-center">Niveau</th>
                                             <th class="text-center">Cycle</th>
                                             <th class="text-center">Annee</th>
@@ -54,11 +55,22 @@
                                             <td>{{$etudiant->matricule}}</td>
                                             <td>{{$etudiant->nom}}</td>
                                             <td>{{$etudiant->prenom}}</td>
+                                            <td>{{$etudiant->email}}</td>
                                             <td>{{$etudiant->niveau}}</td>
                                             <td>{{$etudiant->cycle}}</td>
                                             <td>{{$etudiant->annee}}</td>
                                             
                                             <td class="d-flex">
+                                            <div class="my-auto">
+                                                    
+                                                    <form action="{{route('emails.test' , $etudiant)}}" method="get">
+                                                        <input type="hidden" name="email" value="{{$etudiant->email}}" >
+                                                        <button type="submit" name="submit" class="btn btn-info mb-0" name="submit" style="border:none; background:#f5f5f5;"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+
+                                                    </form>
+                                                    
+                                                    
+                                                </div>
                                                 <a class="btn btn-info" href="{{ route('etudiants.show' , $etudiant) }}">Show</a>
                                                 @if(Auth::user()->role == "directeur")
                                                 <a class="btn btn-primary lien" href="{{ route( 'etudiants.edit', $etudiant) }}">Edit</a>
@@ -70,7 +82,9 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
+                                                
                                                 @endif
+                                                
                                           </td>
                                         </tr>
                                         @endforeach

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,7 +29,8 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->from('somenadine683@gmail.com')
-                    ->subject('Incription ESI')
-                    ->view('mail.contactMail');
+                    ->subject('Mon object personnalisé')
+                    ->view('emails.test');
+                    
     }
 }

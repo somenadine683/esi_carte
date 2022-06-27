@@ -31,10 +31,7 @@ class HomeController extends Controller
     }
 
     
-    public function SendMail(Request $request){
-        Mail::to('somenadine683@gmail.com')->send(new ContactMail());
-        return back()->with("succes","Etudiant");
-    }
+    
     
 
 }

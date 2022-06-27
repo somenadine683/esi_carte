@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 Use App\Models\Etudiant;
 use Illuminate\Http\Request;
+Use App\Mail\TestMail;
+Use App\Mail\EtudiantMarkdownMail;
 
-use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
 
 class EtudiantController extends Controller
@@ -46,6 +47,7 @@ class EtudiantController extends Controller
         'matricule'=>'required',
         'nom'=>'required',
         'prenom'=>'required',
+        'email'=>'required|email',
         'niveau'=>'required',
         'cycle'=>'required',
         'annee'=>'required',
@@ -118,8 +120,17 @@ class EtudiantController extends Controller
                          ->with('success','student deleted successfuly');
         }
 
-        public function SendMail(Request $request){
-            Mail::to('somenadine683@gmail.com')->send(new ContactMail());
-            return back()->with("succes","Etudiant");
-        }
+    public function bar() {
+    
+  
+
+    return view('test');
+    }
+    
+    public function send (Request $request){
+        Mail::to($request->email)->send(new EtudiantMarkdownMail());
+        return back()->with('success', 'Mail envoye !');
+    }
+
+        
 }

@@ -46,11 +46,11 @@
                                                 <label for="inputName">Role</label>
                                             </div> 
                                             <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputNiveau" type="text" placeholder="niveau"name="password" {{ $secretaire->password }}/>
+                                                <input class="form-control etudiant" id="inputNiveau" type="password" placeholder="niveau"name="password" {{ $secretaire->password }}/>
                                                 <label for="inputNiveau">Password</label>
                                             </div>  
                                             <div class="form-floating mb-3">
-                                                <input class="form-control etudiant" id="inputCycle" type="text" placeholder="confirm"name="confirm" {{ $secretaire->confirm }} />
+                                                <input class="form-control etudiant" id="inputCycle" type="password" placeholder="confirm"name="confirm" {{ $secretaire->confirm }} />
                                                 <label for="inputCycle">Confirm_password</label>
                                             </div>
                                             
