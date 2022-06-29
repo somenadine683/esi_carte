@@ -5,8 +5,8 @@ Use App\Models\Etudiant;
 use Illuminate\Http\Request;
 Use App\Mail\TestMail;
 Use App\Mail\EtudiantMarkdownMail;
-
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class EtudiantController extends Controller
 {
@@ -100,6 +100,7 @@ class EtudiantController extends Controller
             'annee'=>'required',
             'photo'=>'required',
         ]);
+        
 
         $etudiant->update($request->all());
         

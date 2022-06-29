@@ -29,7 +29,7 @@ class TestMail extends Mailable
     public function build()
     {
         return $this->from('somenadine683@gmail.com')
-                    ->subject('Mon object personnalisé')
+                    ->subject('Ecole Superieur de l_informatique(ESI)')
                     ->view('emails.test');
                     
     }
